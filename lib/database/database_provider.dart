@@ -3,6 +3,7 @@ import 'package:sqflite/sqlite_api.dart';
 
 import '../model/ponto_eletronico.dart';
 
+
 class DatabaseProvider {
   static const _dbName = 'ponto_eletronico.db';
   static const _dbVersion = 1;
@@ -29,9 +30,7 @@ class DatabaseProvider {
     await db.execute(''' 
       CREATE TABLE ${PontoEletronico.nomeTabela} (
         ${PontoEletronico.campoId} INTEGER PRIMARY KEY AUTOINCREMENT,
-        ${PontoEletronico.campoLatitude} TEXT NOT NULL,
-        ${PontoEletronico.campoLongitude} TEXT NOT NULL,
-        ${PontoEletronico.campoData} TEXT
+        ${PontoEletronico.campoLatitude} TEXT NOT NULL, ${PontoEletronico.campoLongitude} TEXT NOT NULL, ${PontoEletronico.campoData} TEXT
       );
     ''');
   }

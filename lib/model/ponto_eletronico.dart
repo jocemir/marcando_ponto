@@ -8,22 +8,25 @@ class PontoEletronico {
   static const campoData = 'data';
 
   int? id;
-  String? latitude;
   String? longitude;
+  String? latitude;
+
   String? data;
 
   PontoEletronico({
     this.id,
-    this.latitude,
     this.longitude,
+    this.latitude,
+
     this.data,
   });
 
 
   Map<String, dynamic> toMap() => {
     campoId: id == 0 ? null : id,
-    campoLatitude: latitude,
     campoLongitude: longitude,
+    campoLatitude: latitude,
+
     campoData:
     data == null ? null : data!,
   };

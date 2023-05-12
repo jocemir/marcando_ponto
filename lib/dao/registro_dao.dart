@@ -2,7 +2,10 @@ import '../database/database_provider.dart';
 import '../model/ponto_eletronico.dart';
 
 class RegistroDao {
+
   final databaseProvider = DatabaseProvider.instance;
+
+
 
   Future<bool> salvar(PontoEletronico pe) async {
     final database = await databaseProvider.database;
@@ -31,15 +34,14 @@ class RegistroDao {
     return registrosAtualizados > 0;
   }
 
+
   Future<List<PontoEletronico>> listar() async {
     final database = await databaseProvider.database;
     final resultado = await database.query(
       PontoEletronico.nomeTabela,
       columns: [
-        PontoEletronico.campoId,
-        PontoEletronico.campoLongitude,
-        PontoEletronico.campoLatitude,
-        PontoEletronico.campoData
+        PontoEletronico.campoId,PontoEletronico.campoLatitude,PontoEletronico.campoLongitude, PontoEletronico.campoData
+
       ],
     );
     return resultado.map((m) => PontoEletronico.fromMap(m)).toList();
